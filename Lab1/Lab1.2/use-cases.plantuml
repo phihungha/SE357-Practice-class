@@ -1,0 +1,33 @@
+@startuml UseCases
+left to right direction
+:Customer: as c
+:Seller: as s
+:Manager: as m
+
+rectangle System {
+    c -- (View products)
+    (View products) <|-- (Search products)
+    (View products) <|-- (View product details)
+    (View products) <|-- (Add to cart)
+    c -- (View promotions)
+
+    c -- (View cart)
+    (View cart) <|-- (Place order)
+    (Place order) --> (Select payment method)
+    (Place order) --> (Select delivery method)
+
+    c -- (Account)
+    c -- (Login/Logout)
+    (Login/Logout) <|-- (Register)
+
+    s -- (Manage orders)
+    m -- (Manage orders)
+    (Manage orders) <|-- (Update order status)
+    (Manage orders) <|-- (Confirm in-store payment)
+    (Confirm in-store payment) --> (Generate receipt)
+    (Manage orders) <|-- (Generate receipt)
+    s -- (Customer support)
+
+    m -- (Manage stock)
+}
+@enduml
