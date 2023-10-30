@@ -9,14 +9,20 @@ rectangle System {
     (View products) <|-- (Search products)
     (View products) <|-- (View product details)
     (View products) <|-- (Add to cart)
+    (View product details) <|-- (Add to cart)
+
     c -- (View promotions)
+    (View promotions) <|-- (Add to cart)
+    (View promotions) <|-- (View promotion details)
+    (View promotion details) <|-- (Add to cart)
 
     c -- (View cart)
     (View cart) <|-- (Place order)
     (Place order) --> (Select payment method)
     (Place order) --> (Select delivery method)
+    (Place order) <|-- (Select promotions)
 
-    c -- (Account)
+    c -- (Manage account)
     c -- (Login/Logout)
     (Login/Logout) <|-- (Register)
 
@@ -29,5 +35,8 @@ rectangle System {
     s -- (Customer support)
 
     m -- (Manage stock)
+    m -- (Manage products)
+    m -- (Manage product categories)
+    m -- (Generate sales report)
 }
 @enduml
