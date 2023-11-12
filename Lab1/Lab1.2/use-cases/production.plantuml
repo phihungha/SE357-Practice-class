@@ -1,4 +1,4 @@
-@startuml Production
+@startuml production
 left to right direction
 
 :Production planner: as pp
@@ -8,15 +8,10 @@ pp <|-- pm
 :Director: as d
 
 rectangle Production {
-  pp -- (View Production Order)
-  pp -- (Create Production Order)
-  (View Production Order) <|-- (Update Production Order)
-  (View Production Order) <|-- (Start Production Order)
-  (View Production Order) <|-- (Complete Production Order)
-  (View Production Order) <|-- (Cancel Production Order)
+  pp -- (Manage Production Order)
 
   pm -- (Approve Production Order)
-  (Approve Production Order) --> (View Production Order)
+  (Approve Production Order) ..> (Manage Production Order) : <<includes>>
 
   pm -- (Manage Manufacturing Facility list)
   pm -- (Generate Production Report)
