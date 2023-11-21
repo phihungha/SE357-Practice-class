@@ -1,4 +1,4 @@
-@startuml Procurement
+@startuml procurement
 left to right direction
 
 :Director: as d
@@ -13,23 +13,16 @@ pp <|-- prm
 ps <|-- pm
 
 rectangle Procurement {
-    pp -- (Create Purchase Requisition)
-    pp -- (View Purchase Requisition)
-    (View Purchase Requisition) <|-- (Update Purchase Requisition)
-    (View Purchase Requisition) <|-- (Cancel Purchase Requisition)
+    pp -- (Manage Purchase Requisition)
     f -- (Approve Purchase Requisition)
     prm -- (Approve Purchase Requisition)
-    (Approve Purchase Requisition) --> (View Purchase Requisition)
+    (Approve Purchase Requisition) ..> (Manage Purchase Requisition) : <<extends>>
 
-    ps -- (Create Purchase Order)
-    (Create Purchase Order) --> (View Purchase Requisition)
-    ps -- (View Purchase Order)
-    (View Purchase Order) <|-- (Update Purchase Order)
-    (View Purchase Order) <|-- (Update Purchase Order status)
-    (View Purchase Order) <|-- (Attach Purchase Invoice)
-    (View Purchase Order) <|-- (Cancel Purchase Order)
+    ps -- (Manage Purchase Order)
+    (Manage Purchase Order) <|.. (Update Purchase Order progress) : <<extends>>
+    (Manage Purchase Order) <|.. (Attach Purchase Invoice) : <<extends>>
     f -- (Complete Purchase Order payment)
-    (Complete Purchase Order payment) --> (View Purchase Order)
+    (Complete Purchase Order payment) ..> (Manage Purchase Order) : <<includes>>
 
     pm -- (Manage Vendors)
     pm -- (Manage Supplys)

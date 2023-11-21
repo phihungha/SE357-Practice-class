@@ -1,4 +1,4 @@
-@startuml Inventory
+@startuml inventory
 left to right direction
 
 :Director: as d
@@ -11,11 +11,12 @@ rectangle Inventory {
     is -- (Manage stock)
 
     is -- (Goods receive)
-    (Goods receive) --> (View Purchase Order)
-    (Goods receive) --> (View Production Order)
+    (Goods receive) ..> (View Purchase Order) : <<includes>>
+    (Goods receive) ..> (View Production Order) : <<includes>>
 
     is -- (Goods issue)
-    (Goods issue) --> (View Sales Order)
+    (Goods issue) ..> (View Sales Order) : <<includes>>
+    (Goods issue) ..> (View Production Order) : <<includes>>
 
     im -- (Manage Warehouses)
     im -- (Generate Inventory Report)
