@@ -1,0 +1,23 @@
+@startuml sales-order-create
+|u|User
+|s|System
+
+|u|
+start
+:(1) Click "Create";
+
+|s|
+:(2) Load "Create Sales Order" screen;
+
+|u|
+repeat
+    :(3) Enter info and click "Save";
+    |s|
+    :(4) Validate entered info;
+    backward: (4.1.1) Show validation\nerror messages;
+repeat while (Valid?) is (no)
+->yes;
+:(4.2.1) Save item;
+:(4.2.2) Notify relevant users;
+stop
+@enduml

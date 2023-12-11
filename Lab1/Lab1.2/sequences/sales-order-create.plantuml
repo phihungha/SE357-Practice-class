@@ -1,0 +1,23 @@
+@startuml sales-order-create
+autonumber
+
+actor "Sales Specialist" as a
+participant UI as f
+participant Backend as b
+
+a -> f : Click "Create"
+activate f
+a -> f : Enter info and\nclick "Save"
+f -> b : CreateSalesOrder(createDto)
+activate b
+b -> b : Validate(createDto)
+
+alt validation succeeds
+    b -> b : Notify()
+    b --> f : SalesOrderDto
+    f --> a : SalesOrderDto
+else validation fails
+    return ValidationFailure
+    return ValidationFailure
+end
+@enduml
