@@ -1,0 +1,15 @@
+@startuml inventory
+left to right direction
+
+:Inventory Manager: as im
+:Inventory Specialist: as is
+is <|-- im
+
+rectangle Inventory {
+    is -- (Manage stock)
+    is -- (Supplies receive)
+    is -- (Products receive)
+    is -- (Supplies issue)
+    is -- (Products issue)
+}
+@enduml

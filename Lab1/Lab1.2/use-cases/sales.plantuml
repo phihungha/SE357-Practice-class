@@ -1,0 +1,26 @@
+@startuml sales
+left to right direction
+
+
+:Production Manager: as pm
+
+:Sales Specialist: as s
+:Sales Manager: as sm
+s <|-- sm
+
+:Logistics Specialist: as ls
+
+rectangle Sales {
+    s -- (Create Sales Order)
+    s -- (View Sales Order)
+    (View Sales Order) <|.. (Update Sales Order) : <<extends>>
+    (View Sales Order) <|.. (Update progress\nof Sales Order) : <<extends>>
+    ls -- (Update progress\nof Sales Order)
+    (View Sales Order) <|.. (Complete Sales Order) : <<extends>>
+    (View Sales Order) <|.. (Accept payment\nof Sales Order) : <<extends>>
+
+    pm -- (Manage Products)
+    sm -- (Manage Products)
+    sm -- (Manage Retailers)
+}
+@enduml
