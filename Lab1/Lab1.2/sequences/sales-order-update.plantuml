@@ -1,21 +1,20 @@
-@startuml purchase-order-update
+@startuml sales-order-update
 autonumber
 
-actor "Purchase Specialist" as a
+actor "Sales Specialist" as a
 participant UI as f
 participant Backend as b
 
 activate f
 a -> f : Edit info and\nclick "Save"
-f -> b : UpdatePurchaseOrder(id, updateDto)
+f -> b : UpdateSalesOrder(id, updateDto)
 activate b
 b -> b : Validate(updateDto)
 
 alt validation succeeds
-    b -> b : UpdatePurchaseRequisitionStatus(id, status)
     b -> b : Notify()
-    b --> f : PurchaseOrderDto
-    f --> a : PurchaseOrderDto
+    b --> f : SalesOrderDto
+    f --> a : SalesOrderDto
 else validation fails
     return ValidationFailure
     f --> a : ValidationFailure

@@ -1,0 +1,18 @@
+@startuml purchase-order-update
+|u|User
+|s|System
+
+|u|
+start
+repeat
+    :(1) Edit info and click\n"Update" or "Cancel";
+    |s|
+    :(2) Validate entered info;
+    backward: (2.1.1) Show validation error messages;
+repeat while (Valid?) is (no)
+->yes;
+:(2.2.1) Save item;
+:(2.2.2) Update status of\nassociated Purchase Requisition;
+:(2.2.3) Notify relevant users;
+stop
+@enduml
