@@ -1,18 +1,18 @@
 SUPPLY CHAIN MANAGEMENT SUPPORT SYSTEM (SE357 Practice Class)
 
-Contributors:
-Member: Hà Phi Hùng - 20520526 - https://github.com/phihungha
-Member: Lê Quang Trung - 20520333 - https://github.com/LeTrung852258
+**Contributors:**
+* Member: Hà Phi Hùng - 20520526 - https://github.com/phihungha
+* Member: Lê Quang Trung - 20520333 - https://github.com/LeTrung852258
 
-Supervisors:
-Vũ Tuấn Hải - https://github.com/vutuanhai237
+**Supervisors:**
+* Vũ Tuấn Hải - https://github.com/vutuanhai237
 
-Description: This project is an exercise for SE357's practice class.
+**Description:** This project is an exercise for SE357's practice class.
 
-How to use:
+**How to use:**
 
-Additional information:
+**Additional information:**
 
-Code of conducting:
+**Code of conducting:**
 
-License:
+**License:**
